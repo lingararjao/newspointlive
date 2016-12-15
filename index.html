@@ -1,0 +1,171 @@
+<!doctype>
+<html ng-app="newsapp">
+<head>
+	<title>News</title>
+	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css?ver=4.7">
+	<!--<style type="text/css">
+@import url(//fonts.googleapis.com/css?family=Oswald:400,700|Lato:400,700|Work+Sans:900|Montserrat:400,700|Open+Sans:800|Playfair+Display:400,700,900|Quicksand|Raleway:200,400,700|Roboto+Slab:400,700|Work+Sans:100,200,300,400,500,600,700,800,900|Montserrat:100,200,300,400,500,600,700,800,900|Montserrat:100,200,300,400,400italic,500,600,700,700italic,800,900|Lato:100,200,300,400,400italic,500,600,700,700italic,800,900|Montserrat:100,200,300,400,500,600,700,800,900&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese);
+</style>-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body class="bgimg" ng-controller="nwshmcntrl">
+	<div class="wcontainer">
+		<header >
+			<div id="main-header" class="w100 left">
+				<div class="nav-logo">
+					<div class="logo logo-left left">
+						<a href="/">
+							<img src="./assets/images/newslogo.png" alt="news" title="newslogo"/>
+						</a>
+					</div>
+					<div class="nav-outr">
+						<div class="navbar-right-ot">
+							<div class="navbar-right">
+								<nav id="navigation">
+									<div class="nav-container">
+										<ul id="main-nav-menu">
+											<li><a href="#">Home</a></li>
+											<li><a href="#">Sports</a></li>
+											<li><a href="#">Entertainment</a></li>
+											<li><a href="#">Tech</a></li>
+											<li><a href="#">Fashion</a></li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+							<div class="nav-right-soc relative">
+								<div class="nav-search-out left relative">
+									<span class="nav-search-inn left"><i class="fa fa-search fa-2"></i></span>
+									<div class="search-fly-wrap">
+									</div><!--search-fly-wrap-->
+								</div><!--nav-search-wrap-->
+								<a href="http://www.facebook.com/" target="_blank">
+									<span class="nav-soc"><i class="fa fa-facebook fa-2"></i></span>
+								</a>
+								<a href="http://www.twitter.com/" target="_blank">
+									<span class="nav-soc"><i class="fa fa-twitter fa-2"></i></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<div class="container article-container relative ">
+				<!-- top news -->
+				<div class="row">
+<div class="col-lg-12">
+	<div id="top-news" class="left relative">
+					<div class="row nopadding" id="top-news-inn">
+						<div class="col-lg-3 nopadding tpnews-wide-main left relative" ng-repeat="topn in googlnews | limitTo:4">
+
+							<a ng-href="{{topn.url}}" target="_blank">
+								<div class="topnws-img left relative">
+									<img ng-src="{{topn.urlToImage}}" />						
+								</div>
+								<div class="topnws-txt left relative">
+									<span class="feat-cat" ng-bind="topn.author | limitTo:14"></span>
+									<h2 ng-bind="topn.description | limitTo:80"></h2>
+								</div>
+							</a>
+						</div>
+
+					</div>
+				</div>
+</div>
+					
+				</div>
+				<!-- end top news -->
+			</div>
+			<div class="section"></div>
+			<!-- section number 2 -->
+			<div class="bg-mine">
+				<div class="article-container relative">
+					<!-- <h2 class="sec2title">Latest News</h2> -->
+					<div class="container">
+						<div class="row">							
+								<div class="col-lg-12">
+									<div class="row">
+									<div class="row">
+										<div class="col-lg-8">
+											<h2 class="sec2title">National Geographic</h2>
+										</div>
+										<div class="col-lg-4">
+											<h2 class="sec2title">New Scientist</h2>
+										</div>
+									</div>
+										<div class="related-videos row">										
+											<div class="col-xs-12">												
+												<div class="latestsec">
+													<div class="latestsec-img">
+														<div class="row natnws">
+<div class="col-lg-4 natgeobox" ng-repeat="natg in natgeo | limitTo:6">
+<div class="natg-slid">
+	<a ng-href="{{natg.url}}" title="{{natg.title}}" target="_blank">
+		<img ng-src="{{natg.urlToImage}}" title="{{natg.title}}" height="182px" width="265" style="height:182px">
+		<div class="nggallery-text">
+									<p>{{natg.description | limitTo:70}}..</p>
+		</div>
+	</a>
+
+</div>
+ </div>
+														</div>
+													</div>
+													<div class="latestsec-txt">
+														<div class="row nopadding">
+															<div class="scnbox col-sm-12 nopadding" ng-repeat="scn in scientist">
+																<a ng-href="{{scn.url}}" title="{{scn.title}}" target="_blank">
+																	<img ng-src="{{scn.urlToImage}}" alt="" height="80px" width="80px" description="" align="left" style="height:80px;width:80px" />
+<p>{{scn.description | limitTo:240}}..</p>
+																</a>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="featured-box">
+													<div class="col-lg-12">
+														<div class="row">
+
+															<a class="related-video-link col-sm-6 col-md-4">
+															</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- end of section 2 -->
+
+
+			<!-- footer -->
+			<footer>
+			<section>
+			<div class="ftr">
+					<div class="container">
+						<div class="col-lg-12">
+							<div class="foot-txt"><p style="text-align:center;font-size: 18px;">“Live in the future, then build what's missing.”</p></div>
+
+						</div>
+					</div>
+					<div class="copyright">
+						<div class="container">
+							<div class="col-lg-12">
+								<div id="copyright">Powered by: <a href="https://newsapi.org/" target="_blank">NewsAP</a></div>
+							</div>
+						</div>	
+						</section>
+					</footer>
+
+					<!-- end of footer -->
+				</div>
+				<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+				<script type="text/javascript" src="./app/app.js"></script>
+			</body>
+			</html>
